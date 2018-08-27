@@ -1,13 +1,18 @@
 {
   "description": "Copy full xpath",
   "manifest_version": 2,
+  "icons": {
+    "16": "images/selector_16.png",
+    "48": "images/selector_48.png",
+    "128": "images/selector_128.png"
+  },
   "browser_action": {
     "default_icon": {
       "16": "images/selector_16.png",
-      "38": "images/selector_38.png",
       "48": "images/selector_48.png",
       "128": "images/selector_128.png"
-    }
+    },
+    "default_title": "Copy full xpath with more details"
   },
   "background": {
     "scripts": [
