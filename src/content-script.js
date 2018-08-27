@@ -252,17 +252,27 @@ document.addEventListener('mousedown', function (event) {
         var elementTree = extractElementTreeContext(node);
 
         clickedElementXPath = getFullPath(elementTree);
-        console.log(clickedElementXPath);
-
     }
 }, true);
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    console.log(11111);
     if (request == 'GET_CLICKED_ELEMENT') {
-        console.log(22222);
         setTimeout(() => {
-            copyToClipboard(clickedElementXPath);
+            clickedElementXPath && copyToClipboard(clickedElementXPath);
+        }, 0);
+        // sendResponse({ xpath: clickedElementXPath });
+    }
+
+    if (request == 'GET_CLICKED_ELEMENT_JSON') {
+        setTimeout(() => {
+            if (clickedElementXPath) {
+                try {
+                    var stringifyXPath = JSON.stringify(clickedElementXPath);
+                    copyToClipboard(stringifyXPath);
+                } catch (err) {
+                    console.log(err.message);
+                }
+            }
         }, 0);
         // sendResponse({ xpath: clickedElementXPath });
     }
