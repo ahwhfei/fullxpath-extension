@@ -1,0 +1,39 @@
+{
+  "description": "Copy full xpath",
+  "manifest_version": 2,
+  "icons": {
+    "16": "images/selector_16.png",
+    "48": "images/selector_48.png",
+    "128": "images/selector_128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/selector_16.png",
+      "48": "images/selector_48.png",
+      "128": "images/selector_128.png"
+    },
+    "default_title": "Copy full xpath with more details"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content-script.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "name": "Full XPath",
+  "version": "1.0",
+  "permissions": [
+    "contextMenus"
+  ]
+}
